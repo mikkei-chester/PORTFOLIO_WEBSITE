@@ -1,0 +1,231 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* predefined variables stored in root for easy access */
+
+:root{    
+    --hdcolor: rgb(84, 107, 65);
+    --sbcolor: rgb(153, 173, 122);
+    --macolor1: rgb(220, 204, 172);
+    --macolor2: rgb(255, 248, 236);
+}
+
+
+/* this is for the layout, sb - sidebar, hd - header, ma - main */
+
+body{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 3fr;
+    grid-template-areas: 
+        "sb hd"
+        "sb ma";
+    border: solid var(--hdcolor);
+    border-width: 10px 8px 15px 8px;
+}
+
+
+/* This is the header part */
+
+.header{
+    grid-area: hd;
+    background-color: var(--hdcolor);
+    place-items: center;
+    position: relative;
+}
+
+.name{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.name .my-name{
+    top: 20%;
+    left: 5%;
+    padding-bottom: 0.2em;
+    position: absolute;
+    color: aliceblue;
+    font-size: 210%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.name .my-name::before{
+    content: '';
+    font-size: x-large;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: absolute  ;
+    background-color: var(--sbcolor);
+    height: 6px;
+    width: 85%;
+    top: 100%;
+    left: 0;
+}
+
+.name .my-name::after{
+    content: 'Yearning Professional';
+    position: absolute;
+    top: 125%;
+    left: 0;
+    color: aliceblue;
+    font-size: 65%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+/* This is the sidebar container */
+
+.sidebar{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    grid-area: sb;
+    padding: 0 1.5em;
+    background-color: var(--sbcolor);
+    height: 100%;
+    place-items: left;
+    font-size: 90%;
+}
+
+.profile{
+    padding: 1em 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.profile-pic{
+    /* padding: 1em; */
+    width: 23vh;
+    border-radius: 50%;
+    border: 3px solid white;
+    position: relative;
+    z-index: 2;
+}
+
+.profile::before{
+    content: 'I am okay';
+    position: absolute;
+    background-color: black;
+    color: white;
+    padding: 0em 0.6em;
+    font-size: 85%;
+    text-align: center;
+    letter-spacing: -0.05em;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    top: 30%;
+    z-index: 3;
+}
+
+.profile::after{
+    width: 20px;
+    height: 20px;
+    content: '';
+    position: absolute;
+    background-image: url('/heart.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    vertical-align: middle;
+    margin-left: 48px;
+    margin-top: 8.5em;
+    z-index: 3;
+}
+
+.profile::after:hover{
+    transform: rotate(10deg);
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.con,.educ,.skill{
+    font-size: 90%;
+    padding-top: .4em;
+    position: relative;
+}
+
+.con::after,.educ::after,.skill::after{
+    content: '';
+    position: absolute  ;
+    background-color: black;
+    width: 100%;
+    height: .18em;
+    left: 0;
+    bottom: 0;
+}
+
+.contact, .email, .address{
+    display: inline-flex;
+    padding: .2em;
+}
+
+.main-contact, .education, .skills{
+    padding-bottom: 1em;
+}
+
+.education p:first-child{
+    font-weight: bold;
+    font-size: 110%;
+}
+
+.education{
+    font-size: 90%;
+}
+
+.skills ul li{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+/* This is the  main container part*/
+
+.main{
+    grid-area: ma;
+    background-color: var(--macolor2);
+    padding: 1em;
+}
+
+.carr-obj, .work-exp, .work-1, .work-2{
+    padding: 0.5em 0em;
+    text-align: justify;
+}
+
+.carr, .work{
+    background-color: var(--macolor1);
+    padding: 0.2em 0 0.2em 1em;
+    font-size: large;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.obj{
+    padding: 0.8em;
+}
+
+.obj, .work-1, .work-2{
+    font-size: 80%;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+li{
+    list-style: none;
+    position: relative;
+    padding-left: 25;
+}
+
+li::before{
+    content: '✦';
+    left: -25px;
+    position: absolute;
+    color: var(--hdcolor);
+}
+
+li:hover::before {
+    color: var(--macolor1);
+    transform: translateX(-8px) rotate(360deg) scale(1.5) ;
+    transition: all 0.5s ease-out;
+}
+
+/* nagmahal kahit nasasaktan */
